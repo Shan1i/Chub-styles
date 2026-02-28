@@ -56,11 +56,64 @@ body::after {
   background-size: 200px 200px;
 }
 
-/* NAVIGATION — hidden */
-.ant-layout-header,
-.ant-menu-overflow.ant-menu.ant-menu-root {
-  display: none !important;
+/* NAVIGATION */
+.ant-layout-header {
+  background-color: rgba(14, 12, 9, 0.95) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: blur(8px) !important;
 }
+.ant-menu-overflow.ant-menu.ant-menu-root {
+  background-color: transparent !important;
+}
+
+/* Nav menu items */
+.ant-menu-dark .ant-menu-item,
+.ant-menu-dark .ant-menu-submenu-title {
+  color: var(--tx-muted) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+}
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  color: var(--ac) !important;
+  background-color: transparent !important;
+}
+
+/* Search bar in header */
+.ant-layout-header .ant-select-selector {
+  background: rgba(232, 156, 69, 0.06) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+}
+.ant-layout-header .ant-select-selection-placeholder {
+  color: var(--tx-muted) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+}
+.ant-layout-header .ant-select-arrow {
+  color: var(--tx-muted) !important;
+}
+
+/* Logo menu item — override inline orange bg */
+.ant-menu-item:has(img[src="/logo_cataract.png"]) {
+  background-color: transparent !important;
+}
+
+/* Search bar width */
+.ant-layout-header .no-arrow {
+  width: 20vw !important;
+  max-width: 20vw !important;
+}
+
+/* Bell icon */
+.ant-layout-header .lucide-bell {
+  color: var(--tx-muted) !important;
+}
+.ant-layout-header .ant-menu-item:has(.lucide-bell):hover .lucide-bell {
+  color: var(--ac) !important;
+}
+
 
 /* ALL BUTTONS — base */
 button.ant-btn {
@@ -153,13 +206,62 @@ button.ant-btn:has(svg.lucide-messages-square) {
   letter-spacing: 0.04em !important;
 }
 
-/* AVATAR hover */
+/* AVATAR — image container */
+.ant-col.text-left > .ant-ribbon-wrapper {
+  display: block !important;
+  width: 100% !important;
+}
 .ant-col.text-left > .ant-ribbon-wrapper > .ant-image {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block !important;
+  width: 100% !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 .ant-col.text-left > .ant-ribbon-wrapper > .ant-image:hover {
-  transform: scale(1.02) translateY(-3px);
-  box-shadow: 0 8px 28px rgba(232, 156, 69, 0.2);
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 32px rgba(232, 156, 69, 0.2) !important;
+}
+.ant-image-img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* AVATAR — preview mask on hover */
+.ant-image-mask {
+  background: rgba(14, 12, 9, 0.7) !important;
+  border-radius: 4px !important;
+  backdrop-filter: blur(2px) !important;
+}
+.ant-image-mask-info {
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.1em !important;
+  color: var(--ac) !important;
+}
+
+/* AVATAR — ribbon (stats badge) */
+.ant-ribbon {
+  background: rgba(14, 12, 9, 0.92) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 11px !important;
+  color: var(--tx-muted) !important;
+  padding: 0.3rem 0.6rem !important;
+}
+.ant-ribbon-text {
+  color: var(--tx-muted) !important;
+}
+.ant-ribbon-text .anticon {
+  color: var(--ac) !important;
+  opacity: 0.7 !important;
+}
+.ant-ribbon-corner {
+  display: none !important;
 }
 
 /* DESCRIPTION FADE OVERLAY */
@@ -368,7 +470,6 @@ h3.ant-typography,
 h5.ant-typography,
 h4.ant-typography.mt-8,
 h4.ant-typography.mt-8 + div,
-.ant-layout-footer,
-.ant-ribbon.ant-ribbon-placement-end {
+.ant-layout-footer {
   display: none !important;
 }
