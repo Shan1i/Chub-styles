@@ -1,0 +1,60 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* VARIABLES */
+:root {
+  --ac: #c8a96e;   /* accent */
+  --bg: #0d0b09;   /* page background */
+  --tx: #e8e0d5;   /* text */
+}
+
+/* PAGE BACKGROUND */
+body, .ant-layout, .ant-layout-content {
+  background: var(--bg) !important;
+}
+
+/* ALL BUTTONS — base */
+button.ant-btn {
+  font-family: 'Lato', sans-serif !important;
+  font-weight: 700 !important;
+  height: 48px !important;
+  border-radius: 6px !important;
+  transition: filter 0.2s, transform 0.15s !important;
+}
+button.ant-btn:hover  { filter: brightness(1.2); }
+button.ant-btn:active { transform: translateY(1px); }
+
+/* Default button */
+button.ant-btn.ant-btn-default {
+  background: transparent !important;
+  color: var(--tx) !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+}
+
+/* Primary button */
+button.ant-btn.ant-btn-primary {
+  background: var(--ac) !important;
+  color: #000 !important;
+  border: none !important;
+}
+
+/* "Start Chat" button */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: var(--ac) !important;
+  color: #000 !important;
+  height: 60px !important;
+  font-size: 15px !important;
+}
+
+/* TAGS */
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
+  background: transparent !important;
+  color: var(--tx) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  border-radius: 3px !important;
+}
+
+/* HIDE platform clutter */
+h3.ant-typography, h5.ant-typography, .ant-layout-footer {
+  display: none !important;
+}
