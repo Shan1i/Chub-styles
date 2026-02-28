@@ -1,5 +1,5 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300;400;500&family=Ubuntu:wght@300;400&display=swap');
 
 /* VARIABLES */
 :root {
@@ -9,6 +9,15 @@
   --tx:       #ddd0b8;
   --tx-muted: #8a7f6a;
   --border:   rgba(232, 156, 69, 0.18);
+}
+
+/* CURSOR */
+* { cursor: crosshair !important; }
+
+/* TEXT SELECTION */
+::selection {
+  background: rgba(232, 156, 69, 0.3) !important;
+  color: #f0ece3 !important;
 }
 
 /* PAGE BACKGROUND */
@@ -209,6 +218,115 @@ i a {
 i a:hover {
   opacity: 1;
   text-decoration: underline !important;
+}
+
+/* SWITCH */
+.ant-switch {
+  background: rgba(232, 156, 69, 0.15) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  transition: background 0.25s, box-shadow 0.25s !important;
+}
+.ant-switch-handle::before {
+  border-radius: 2px !important;
+}
+.ant-switch:hover {
+  box-shadow: 0 0 8px var(--ac-glow) !important;
+}
+.ant-switch.ant-switch-checked {
+  background: var(--ac) !important;
+  border-color: var(--ac) !important;
+}
+.ant-switch-handle::before {
+  background: var(--tx) !important;
+  box-shadow: none !important;
+}
+.ant-switch.ant-switch-checked .ant-switch-handle::before {
+  background: #0e0c09 !important;
+}
+
+/* COLLAPSE PANELS */
+.ant-collapse {
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid var(--border) !important;
+}
+.ant-collapse-item {
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+.ant-collapse-header {
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+  color: var(--tx) !important;
+  letter-spacing: 0.06em !important;
+  padding: 0.75rem 1rem !important;
+  transition: color 0.2s !important;
+  align-items: center !important;
+}
+.ant-collapse-header:hover {
+  color: var(--ac) !important;
+}
+.ant-collapse-item-active .ant-collapse-header {
+  color: var(--ac) !important;
+}
+.ant-collapse-arrow {
+  color: var(--tx-muted) !important;
+  font-size: 10px !important;
+  vertical-align: middle !important;
+  margin-top: 0 !important;
+}
+.ant-collapse-item-active .ant-collapse-arrow {
+  color: var(--ac) !important;
+}
+.ant-collapse-content {
+  background: rgba(14, 12, 9, 0.6) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--tx) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+}
+.ant-collapse-content-box {
+  padding: 1rem 1.25rem !important;
+}
+
+/* DESCRIPTIONS TABLE (inside collapse) */
+.ant-descriptions-bordered .ant-descriptions-view {
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+.ant-descriptions-bordered .ant-descriptions-item-label {
+  background: rgba(232, 156, 69, 0.05) !important;
+  border-right: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--ac) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  padding: 0.5rem 1rem !important;
+}
+.ant-descriptions-bordered .ant-descriptions-item-content {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: #c8c0b0 !important;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 16px !important;
+  line-height: 2.1 !important;
+  padding: 0.75rem 1rem !important;
+}
+.ant-descriptions-row:last-child .ant-descriptions-item-label,
+.ant-descriptions-row:last-child .ant-descriptions-item-content {
+  border-bottom: none !important;
+}
+.ant-descriptions-item-content div div {
+  padding: 0.15rem 0.25rem !important;
+  border-radius: 2px !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+.ant-descriptions-item-content div div:hover {
+  background: rgba(232, 156, 69, 0.08) !important;
+  color: #ddd0b8 !important;
 }
 
 /* HIDE platform clutter */
