@@ -47,10 +47,10 @@ body::after {
   background-size: 200px 200px;
 }
 
-/* NAVIGATION */
+/* NAVIGATION — hidden */
 .ant-layout-header,
 .ant-menu-overflow.ant-menu.ant-menu-root {
-  background-color: transparent !important;
+  display: none !important;
 }
 
 /* ALL BUTTONS — base */
@@ -108,11 +108,11 @@ button.ant-btn:has(svg.lucide-messages-square) {
 /* TAGS */
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
   background: transparent !important;
-  color: var(--tx-muted) !important;
-  border: 1px solid rgba(232, 156, 69, 0.14) !important;
+  color: var(--tx) !important;
+  border: 1px solid rgba(232, 156, 69, 0.25) !important;
   border-radius: 2px !important;
   font-family: 'IBM Plex Mono', monospace !important;
-  font-size: 11px !important;
+  font-size: 13px !important;
   letter-spacing: 0.04em !important;
 }
 .ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover {
@@ -161,6 +161,53 @@ button.sc-ifyrAs:hover {
   color: var(--ac) !important;
   border-color: rgba(232, 156, 69, 0.5) !important;
   box-shadow: 0 0 10px var(--ac-glow) !important;
+}
+
+/* FORK ATTRIBUTION BANNER */
+a[role="alert"] {
+  position: fixed !important;
+  bottom: 1rem !important;
+  left: 1rem !important;
+  z-index: 999 !important;
+  background: rgba(14, 12, 9, 0.85) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  color: var(--tx-muted) !important;
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.06em !important;
+  padding: 0.4rem 0.8rem !important;
+  backdrop-filter: blur(6px) !important;
+  transition: border-color 0.2s, color 0.2s !important;
+  max-width: 280px !important;
+}
+a[role="alert"]:hover {
+  border-color: rgba(232, 156, 69, 0.45) !important;
+  color: var(--ac) !important;
+}
+a[role="alert"] span.bg-indigo-500 {
+  background: transparent !important;
+  color: var(--tx-muted) !important;
+  padding: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+/* CREATED / LAST UPDATED meta */
+i {
+  font-family: 'IBM Plex Mono', monospace !important;
+  font-style: normal !important;
+  font-size: 11px !important;
+  color: var(--tx-muted) !important;
+  letter-spacing: 0.04em !important;
+}
+i a {
+  color: var(--ac) !important;
+  text-decoration: none !important;
+  opacity: 0.8;
+}
+i a:hover {
+  opacity: 1;
+  text-decoration: underline !important;
 }
 
 /* HIDE platform clutter */
