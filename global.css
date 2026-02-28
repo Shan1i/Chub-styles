@@ -1,5 +1,5 @@
 /* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300;400;500&display=swap');
 
 /* VARIABLES */
 :root {
@@ -16,7 +16,7 @@ body,
 .ant-layout,
 .ant-layout-content {
   background: var(--bg) !important;
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
 }
 
 /* SCANLINES — barely visible */
@@ -55,7 +55,7 @@ body::after {
 
 /* ALL BUTTONS — base */
 button.ant-btn {
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
   font-weight: 500 !important;
   height: 48px !important;
   border-radius: 4px !important;
@@ -111,7 +111,7 @@ button.ant-btn:has(svg.lucide-messages-square) {
   color: var(--tx) !important;
   border: 1px solid rgba(232, 156, 69, 0.25) !important;
   border-radius: 2px !important;
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
   font-size: 13px !important;
   letter-spacing: 0.04em !important;
 }
@@ -122,7 +122,7 @@ button.ant-btn:has(svg.lucide-messages-square) {
 
 /* CHARACTER NAME */
 :is(h1, h2, h3).ant-typography[class*=css-] {
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
   color: var(--tx) !important;
   font-weight: 300 !important;
   letter-spacing: 0.04em !important;
@@ -149,7 +149,7 @@ button.sc-ifyrAs {
   color: var(--tx-muted) !important;
   border: 1px solid var(--border) !important;
   border-radius: 4px !important;
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
   font-size: 11px !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
@@ -168,12 +168,13 @@ a[role="alert"] {
   position: fixed !important;
   bottom: 1rem !important;
   left: 1rem !important;
+  align-items: baseline !important;
   z-index: 999 !important;
   background: rgba(14, 12, 9, 0.85) !important;
   border: 1px solid var(--border) !important;
   border-radius: 4px !important;
   color: var(--tx-muted) !important;
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
   font-size: 10px !important;
   letter-spacing: 0.06em !important;
   padding: 0.4rem 0.8rem !important;
@@ -194,7 +195,7 @@ a[role="alert"] span.bg-indigo-500 {
 
 /* CREATED / LAST UPDATED meta */
 i {
-  font-family: 'IBM Plex Mono', monospace !important;
+  font-family: 'Cascadia Mono', monospace !important;
   font-style: normal !important;
   font-size: 11px !important;
   color: var(--tx-muted) !important;
