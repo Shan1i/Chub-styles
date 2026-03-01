@@ -1,0 +1,481 @@
+/* ============================================================
+   minimal-style.css
+   Fork of amber-static (global.css) — clean starting point.
+   Hosted: https://cdn.jsdelivr.net/gh/Shan1i/Chub-styles@latest/themes/minimal-style.css
+   ============================================================ */
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300;400;500&family=Ubuntu:wght@300;400&display=swap');
+
+/* VARIABLES */
+:root {
+  --ac:       #e89c45;
+  --ac-glow:  rgba(232, 156, 69, 0.32);
+  --bg:       #0e0c09;
+  --tx:       #ddd0b8;
+  --tx-muted: #8a7f6a;
+  --border:   rgba(232, 156, 69, 0.18);
+}
+
+/* CURSOR */
+* { cursor: crosshair !important; }
+
+/* TEXT SELECTION */
+::selection {
+  background: rgba(232, 156, 69, 0.3) !important;
+  color: #f0ece3 !important;
+}
+
+/* PAGE BACKGROUND */
+body,
+.ant-layout,
+.ant-layout-content {
+  background: var(--bg) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+}
+
+/* SCANLINES — barely visible */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.03) 0px,
+    rgba(0, 0, 0, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* GRAIN — barely visible */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 99;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* NAVIGATION */
+.ant-layout-header {
+  background-color: rgba(14, 12, 9, 0.95) !important;
+  border-bottom: 1px solid var(--border) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.ant-menu-overflow.ant-menu.ant-menu-root {
+  background-color: transparent !important;
+}
+
+/* Nav menu items */
+.ant-menu-dark .ant-menu-item,
+.ant-menu-dark .ant-menu-submenu-title {
+  color: var(--tx-muted) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.06em !important;
+}
+.ant-menu-dark .ant-menu-item:hover,
+.ant-menu-dark .ant-menu-submenu-title:hover {
+  color: var(--ac) !important;
+  background-color: transparent !important;
+}
+
+/* Search bar in header */
+.ant-layout-header .ant-select-selector {
+  background: rgba(232, 156, 69, 0.06) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+}
+.ant-layout-header .ant-select-selection-placeholder {
+  color: var(--tx-muted) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+}
+.ant-layout-header .ant-select-arrow {
+  color: var(--tx-muted) !important;
+}
+
+/* Logo menu item — override inline orange bg */
+.ant-menu-item:has(img[src="/logo_cataract.png"]) {
+  background-color: transparent !important;
+}
+
+/* Search bar width */
+.ant-layout-header .no-arrow {
+  width: 20vw !important;
+  max-width: 20vw !important;
+}
+
+/* Bell icon */
+.ant-layout-header .lucide-bell {
+  color: var(--tx-muted) !important;
+}
+.ant-layout-header .ant-menu-item:has(.lucide-bell):hover .lucide-bell {
+  color: var(--ac) !important;
+}
+
+
+/* ALL BUTTONS — base */
+button.ant-btn {
+  font-family: 'Cascadia Mono', monospace !important;
+  font-weight: 500 !important;
+  height: 48px !important;
+  border-radius: 4px !important;
+  letter-spacing: 0.04em !important;
+  transition: box-shadow 0.25s, filter 0.2s, transform 0.12s !important;
+}
+button.ant-btn:active {
+  transform: translateY(1px) !important;
+}
+
+/* FLIP text on hover (except Start Chat) */
+button.ant-btn:not(:has(svg.lucide-messages-square)) {
+  overflow: hidden !important;
+}
+button.ant-btn:not(:has(svg.lucide-messages-square)):hover > span {
+  display: inline-block !important;
+  animation: flipText 0.35s ease forwards !important;
+}
+@keyframes flipText {
+  0%   { transform: translateY(0);     opacity: 1; }
+  40%  { transform: translateY(-110%); opacity: 0; }
+  41%  { transform: translateY(110%);  opacity: 0; }
+  100% { transform: translateY(0);     opacity: 1; }
+}
+
+
+/* Default button */
+button.ant-btn.ant-btn-default {
+  background: transparent !important;
+  color: var(--tx) !important;
+  border: 1px solid var(--border) !important;
+}
+button.ant-btn.ant-btn-default:hover {
+  color: var(--ac) !important;
+  border-color: rgba(232, 156, 69, 0.5) !important;
+  box-shadow: 0 0 10px var(--ac-glow) !important;
+}
+
+/* Primary button */
+button.ant-btn.ant-btn-primary {
+  background: var(--ac) !important;
+  color: #0e0c09 !important;
+  border: none !important;
+}
+button.ant-btn.ant-btn-primary:hover {
+  filter: brightness(1.1) !important;
+  box-shadow: 0 0 16px var(--ac-glow) !important;
+}
+
+/* "Start Chat" button — sonar pulse */
+button.ant-btn:has(svg.lucide-messages-square) {
+  background: var(--ac) !important;
+  color: #0e0c09 !important;
+  height: 60px !important;
+  font-size: 14px !important;
+  border: none !important;
+  animation: sonarPulse 2.5s ease-out infinite !important;
+}
+
+@keyframes sonarPulse {
+  0%   { box-shadow: 0 0 0 0 var(--ac-glow); }
+  65%  { box-shadow: 0 0 0 16px rgba(232, 156, 69, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(232, 156, 69, 0); }
+}
+
+/* TAGS */
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag {
+  background: transparent !important;
+  color: var(--tx) !important;
+  border: 1px solid rgba(232, 156, 69, 0.25) !important;
+  border-radius: 2px !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+}
+.ant-space.ant-space-horizontal.ant-space-align-center .ant-tag:hover {
+  color: var(--ac) !important;
+  border-color: var(--ac) !important;
+}
+
+/* CHARACTER NAME */
+:is(h1, h2, h3).ant-typography[class*=css-] {
+  font-family: 'Cascadia Mono', monospace !important;
+  color: var(--tx) !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.04em !important;
+}
+
+/* AVATAR — image container */
+.ant-col.text-left > .ant-ribbon-wrapper {
+  display: block !important;
+  width: 100% !important;
+}
+.ant-col.text-left > .ant-ribbon-wrapper > .ant-image {
+  display: block !important;
+  width: 100% !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.ant-col.text-left > .ant-ribbon-wrapper > .ant-image:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 32px rgba(232, 156, 69, 0.2) !important;
+}
+.ant-image-img {
+  width: 100% !important;
+  height: auto !important;
+  display: block !important;
+}
+
+/* AVATAR — preview mask on hover */
+.ant-image-mask {
+  background: rgba(14, 12, 9, 0.7) !important;
+  border-radius: 4px !important;
+  backdrop-filter: blur(2px) !important;
+}
+.ant-image-mask-info {
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+  letter-spacing: 0.1em !important;
+  color: var(--ac) !important;
+}
+
+/* AVATAR — ribbon (stats badge) */
+.ant-ribbon {
+  background: rgba(14, 12, 9, 0.92) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 11px !important;
+  color: var(--tx-muted) !important;
+  padding: 0.3rem 0.6rem !important;
+}
+.ant-ribbon-text {
+  color: var(--tx-muted) !important;
+}
+.ant-ribbon-text .anticon {
+  color: var(--ac) !important;
+  opacity: 0.7 !important;
+}
+.ant-ribbon-corner {
+  display: none !important;
+}
+
+/* DESCRIPTION FADE OVERLAY */
+.sc-fHejqy::after {
+  background: linear-gradient(rgba(14, 12, 9, 0), #0e0c09) !important;
+  height: 2em !important;
+}
+
+/* SHOW MORE button */
+button.sc-ifyrAs {
+  background: transparent !important;
+  color: var(--tx-muted) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  padding: 0.4rem 1.2rem !important;
+  cursor: pointer !important;
+  transition: color 0.2s, border-color 0.2s, box-shadow 0.2s !important;
+}
+button.sc-ifyrAs:hover {
+  color: var(--ac) !important;
+  border-color: rgba(232, 156, 69, 0.5) !important;
+  box-shadow: 0 0 10px var(--ac-glow) !important;
+}
+
+/* FORK ATTRIBUTION BANNER */
+a[role="alert"] {
+  position: fixed !important;
+  bottom: 1rem !important;
+  left: 1rem !important;
+  align-items: baseline !important;
+  z-index: 999 !important;
+  background: rgba(14, 12, 9, 0.85) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  color: var(--tx-muted) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 10px !important;
+  letter-spacing: 0.06em !important;
+  padding: 0.4rem 0.8rem !important;
+  backdrop-filter: blur(6px) !important;
+  transition: border-color 0.2s, color 0.2s !important;
+  max-width: 280px !important;
+}
+a[role="alert"]:hover {
+  border-color: rgba(232, 156, 69, 0.45) !important;
+  color: var(--ac) !important;
+}
+a[role="alert"] span.bg-indigo-500 {
+  background: transparent !important;
+  color: var(--tx-muted) !important;
+  padding: 0 !important;
+  margin-right: 0.5rem !important;
+}
+
+/* CREATED / LAST UPDATED meta */
+i {
+  font-family: 'Cascadia Mono', monospace !important;
+  font-style: normal !important;
+  font-size: 11px !important;
+  color: var(--tx-muted) !important;
+  letter-spacing: 0.04em !important;
+}
+i a {
+  color: var(--ac) !important;
+  text-decoration: none !important;
+  opacity: 0.8;
+}
+i a:hover {
+  opacity: 1;
+  text-decoration: underline !important;
+}
+
+/* TOOLTIPS */
+.ant-tooltip .ant-tooltip-inner {
+  background: rgba(14, 12, 9, 0.95) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  color: #f0ece3 !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  padding: 0.4rem 0.75rem !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6) !important;
+}
+.ant-tooltip .ant-tooltip-arrow::before,
+.ant-tooltip .ant-tooltip-arrow::after {
+  background: rgba(14, 12, 9, 0.95) !important;
+  border-color: var(--border) !important;
+}
+
+/* SWITCH */
+.ant-switch {
+  background: rgba(232, 156, 69, 0.15) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  transition: background 0.25s, box-shadow 0.25s !important;
+}
+.ant-switch-handle::before {
+  border-radius: 2px !important;
+}
+.ant-switch:hover {
+  box-shadow: 0 0 8px var(--ac-glow) !important;
+}
+.ant-switch.ant-switch-checked {
+  background: var(--ac) !important;
+  border-color: var(--ac) !important;
+}
+.ant-switch-handle::before {
+  background: var(--tx) !important;
+  box-shadow: none !important;
+}
+.ant-switch.ant-switch-checked .ant-switch-handle::before {
+  background: #0e0c09 !important;
+}
+
+/* COLLAPSE PANELS */
+.ant-collapse {
+  background: transparent !important;
+  border: none !important;
+  border-top: 1px solid var(--border) !important;
+}
+.ant-collapse-item {
+  border-bottom: 1px solid var(--border) !important;
+  background: transparent !important;
+}
+.ant-collapse-header {
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 14px !important;
+  color: var(--tx) !important;
+  letter-spacing: 0.06em !important;
+  padding: 0.75rem 1rem !important;
+  transition: color 0.2s !important;
+  align-items: center !important;
+}
+.ant-collapse-header:hover {
+  color: var(--ac) !important;
+}
+.ant-collapse-item-active .ant-collapse-header {
+  color: var(--ac) !important;
+}
+.ant-collapse-arrow {
+  color: var(--tx-muted) !important;
+  font-size: 10px !important;
+  vertical-align: middle !important;
+  margin-top: 0 !important;
+}
+.ant-collapse-item-active .ant-collapse-arrow {
+  color: var(--ac) !important;
+}
+.ant-collapse-content {
+  background: rgba(14, 12, 9, 0.6) !important;
+  border-top: 1px solid var(--border) !important;
+  color: var(--tx) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 12px !important;
+}
+.ant-collapse-content-box {
+  padding: 1rem 1.25rem !important;
+}
+
+/* DESCRIPTIONS TABLE (inside collapse) */
+.ant-descriptions-bordered .ant-descriptions-view {
+  border: 1px solid var(--border) !important;
+  border-radius: 4px !important;
+  overflow: hidden !important;
+}
+.ant-descriptions-bordered .ant-descriptions-item-label {
+  background: rgba(232, 156, 69, 0.05) !important;
+  border-right: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: var(--ac) !important;
+  font-family: 'Cascadia Mono', monospace !important;
+  font-size: 11px !important;
+  letter-spacing: 0.06em !important;
+  padding: 0.5rem 1rem !important;
+}
+.ant-descriptions-bordered .ant-descriptions-item-content {
+  background: transparent !important;
+  border-bottom: 1px solid var(--border) !important;
+  color: #c8c0b0 !important;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 16px !important;
+  line-height: 2.1 !important;
+  padding: 0.75rem 1rem !important;
+}
+.ant-descriptions-row:last-child .ant-descriptions-item-label,
+.ant-descriptions-row:last-child .ant-descriptions-item-content {
+  border-bottom: none !important;
+}
+.ant-descriptions-item-content div div {
+  padding: 0.15rem 0.25rem !important;
+  border-radius: 2px !important;
+  transition: background 0.15s, color 0.15s !important;
+}
+.ant-descriptions-item-content div div:hover {
+  background: rgba(232, 156, 69, 0.08) !important;
+  color: #ddd0b8 !important;
+}
+
+/* HIDE platform clutter */
+h3.ant-typography,
+h5.ant-typography,
+h4.ant-typography.mt-8,
+h4.ant-typography.mt-8 + div,
+.ant-layout-footer {
+  display: none !important;
+}
